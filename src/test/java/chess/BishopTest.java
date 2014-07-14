@@ -1,5 +1,7 @@
 package chess;
 
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,6 +24,15 @@ public class BishopTest {
     @Test
     public void testNextPositionsNotNull() throws Exception {
         assertNotNull("The set of next positions can never be null", bishop.getNextPositions(start));
+    }
+    @Test
+    public void testCantGoFartherNorthEast(){
+    	Position maxNE = new Position(Position.MAX_COLUMN,Position.MAX_ROW);
+    	Bishop b  = new Bishop();
+    	Set<Position> shouldBeEmpty = b.getNextPositions(maxNE);
+    	assertNotNull(shouldBeEmpty);
+    	assertTrue(shouldBeEmpty.isEmpty());
+    	
     }
 
 }
